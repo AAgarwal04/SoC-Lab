@@ -1,0 +1,1130 @@
+{
+  "schema_version": 3,
+  "team": "qwen_q5_k_m",
+  "split": "public",
+  "timestamp": "2026-09-13T02:07:10",
+  "quality": {
+    "score_100": 52.1,
+    "points": 26.038,
+    "max_points": 50,
+    "items": 50,
+    "sections": {
+      "hellaswag": {
+        "n": 20,
+        "points": 6.593,
+        "pct": 32.96,
+        "raw_mean": 0.0493,
+        "accuracy_pct": 45.0,
+        "errors": 0
+      },
+      "arc_easy": {
+        "n": 20,
+        "points": 12.445,
+        "pct": 62.23,
+        "raw_mean": 0.3051,
+        "accuracy_pct": 75.0,
+        "errors": 0
+      },
+      "ifeval": {
+        "n": 10,
+        "points": 7.0,
+        "pct": 70.0,
+        "raw_mean": 0.7,
+        "accuracy_pct": 50.0,
+        "errors": 0
+      }
+    },
+    "accuracy_pct": 58.0,
+    "abstentions": 0,
+    "errors": 0
+  },
+  "performance": {
+    "wall_clock_s": 645.18,
+    "load_s": 28.91,
+    "peak_rss_mb": 1006.5,
+    "requests": 50,
+    "prompt_tokens": 3525,
+    "generated_tokens": 735,
+    "prefill_tok_s": 7.53,
+    "decode_tok_s": 5.09,
+    "decode_tok_s_wall": 4.01,
+    "ttft_ms_median": 4092.6,
+    "ttft_ms_p95": 4825.7,
+    "server": {
+      "model_path": "../models/qwen2.5-0.5b-instruct-q5_k_m.gguf",
+      "total_slots": 4,
+      "build_info": "b10851-67672dc5b",
+      "chat_template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- messages[0]['content'] }}\n    {%- else %}\n        {{- 'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.' }}\n    {%- endif %}\n    {{- \"\\n\\n# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0]['content'] + '<|im_end|>\\n' }}\n    {%- else %}\n        {{- '<|im_start|>system\\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- for message in messages %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) or (message.role == \"assistant\" and not message.tool_calls) %}\n        {{- '<|im_start|>' + message.role + '\\n' + message.content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {{- '<|im_start|>' + message.role }}\n        {%- if message.content %}\n            {{- '\\n' + message.content }}\n        {%- endif %}\n        {%- for tool_call in message.tool_calls %}\n            {%- if tool_call.function is defined %}\n                {%- set tool_call = tool_call.function %}\n            {%- endif %}\n            {{- '\\n<tool_call>\\n{\"name\": \"' }}\n            {{- tool_call.name }}\n            {{- '\", \"arguments\": ' }}\n            {{- tool_call.arguments | tojson }}\n            {{- '}\\n</tool_call>' }}\n        {%- endfor %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if (loop.index0 == 0) or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- message.content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n{%- endif %}",
+      "n_ctx": 32768
+    }
+  },
+  "items": [
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.47112835834182243,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 1,
+        "p_gold": 0.1604,
+        "probs": [
+          0.2641,
+          0.5732,
+          0.1604,
+          0.0023
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 15.368211685003189,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.33361324565127226,
+      "raw_score": 0.33361324565127226,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.4527,
+        "probs": [
+          0.4527,
+          0.4399,
+          0.0751,
+          0.0323
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 11.500834381004097,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.4926232411771121,
+      "raw_score": 0.4926232411771121,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 1,
+        "p_gold": 0.4887,
+        "probs": [
+          0.3041,
+          0.4887,
+          0.1542,
+          0.0531
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 15.172823968998273,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.9985161430586654,
+      "raw_score": 0.9985161430586654,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 3,
+        "p_gold": 0.9721,
+        "probs": [
+          0.0023,
+          0.0135,
+          0.0121,
+          0.9721
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.101721380000527,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.769795576820842,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 1,
+        "p_gold": 0.0359,
+        "probs": [
+          0.096,
+          0.5114,
+          0.3566,
+          0.0359
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 13.357630380000046,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.8716396335117091,
+      "raw_score": 0.8716396335117091,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.7494,
+        "probs": [
+          0.7494,
+          0.1619,
+          0.0849,
+          0.0038
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 11.21828566199838,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.7394583904563548,
+      "raw_score": 0.7394583904563548,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 1,
+        "p_gold": 0.6513,
+        "probs": [
+          0.2585,
+          0.6513,
+          0.0833,
+          0.0069
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 12.767182779003633,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.15475228574168254,
+      "raw_score": 0.15475228574168254,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 1,
+        "p_gold": 0.3541,
+        "probs": [
+          0.3541,
+          0.4429,
+          0.1012,
+          0.1017
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 15.694728628994199,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.09633005405774497,
+      "raw_score": 0.09633005405774497,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 2,
+        "p_gold": 0.2968,
+        "probs": [
+          0.2745,
+          0.2968,
+          0.3036,
+          0.1251
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 13.182780121001997,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.6324666377007757,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 2,
+        "p_gold": 0.1367,
+        "probs": [
+          0.0589,
+          0.1367,
+          0.678,
+          0.1264
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 18.02452392399573,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.979817521572285,
+      "raw_score": 0.979817521572285,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 1,
+        "p_gold": 0.9071,
+        "probs": [
+          0.0802,
+          0.9071,
+          0.0056,
+          0.007
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 13.568167611003446,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.8740690554572653,
+      "raw_score": 0.8740690554572653,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 2,
+        "p_gold": 0.7743,
+        "probs": [
+          0.0049,
+          0.2081,
+          0.7743,
+          0.0126
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 12.394143527999404,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.583358263030842,
+      "raw_score": 0.583358263030842,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 2,
+        "p_gold": 0.5175,
+        "probs": [
+          0.1756,
+          0.1832,
+          0.5175,
+          0.1237
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 16.745375131999026,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.6965243664772662,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 1,
+        "p_gold": 0.1086,
+        "probs": [
+          0.151,
+          0.6709,
+          0.1086,
+          0.0696
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.656712196003355,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.46837520818883005,
+      "raw_score": 0.46837520818883005,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.5194,
+        "probs": [
+          0.5194,
+          0.0649,
+          0.4042,
+          0.0114
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 13.436352780998277,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.9435778198599134,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 1,
+        "p_gold": 0.0206,
+        "probs": [
+          0.188,
+          0.6695,
+          0.122,
+          0.0206
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 14.642692102002911,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -1.0257705164102915,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.1095,
+        "probs": [
+          0.8518,
+          0.1095,
+          0.0213,
+          0.0174
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.131373894997523,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.032416256393899445,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 1,
+        "p_gold": 0.3737,
+        "probs": [
+          0.0054,
+          0.618,
+          0.3737,
+          0.0029
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.395000623997475,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.5923941667193908,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 2,
+        "p_gold": 0.1237,
+        "probs": [
+          0.0747,
+          0.1778,
+          0.6238,
+          0.1237
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 15.705460851997486,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.4420283571195327,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 1,
+        "p_gold": 0.2387,
+        "probs": [
+          0.2387,
+          0.7066,
+          0.0513,
+          0.0034
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 13.302374213999428,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_182158",
+      "score": 0.0,
+      "raw_score": -0.9203456772223897,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 1,
+        "p_gold": 0.0927,
+        "probs": [
+          0.0927,
+          0.78,
+          0.0815,
+          0.0458
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.09991122000065,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7216668",
+      "score": 0.9999972738416686,
+      "raw_score": 0.9999972738416686,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 2,
+        "p_gold": 0.9988,
+        "probs": [
+          0.0,
+          0.0007,
+          0.9988,
+          0.0004
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.742418370995438,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "MCAS_2001_5_19",
+      "score": 0.9999985741681111,
+      "raw_score": 0.9999985741681111,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 2,
+        "p_gold": 0.9992,
+        "probs": [
+          0.0,
+          0.0001,
+          0.9992,
+          0.0006
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 4.724658627004828,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_415412",
+      "score": 0.0,
+      "raw_score": -0.6079939164898711,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 2,
+        "p_gold": 0.0927,
+        "probs": [
+          0.0718,
+          0.2978,
+          0.5376,
+          0.0927
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.290409193999949,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7126840",
+      "score": 0.9985809165683579,
+      "raw_score": 0.9985809165683579,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 2,
+        "p_gold": 0.9753,
+        "probs": [
+          0.0021,
+          0.0013,
+          0.9753,
+          0.0212
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 8.144522726004652,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "NYSEDREGENTS_2015_8_21",
+      "score": 0.8136334726958466,
+      "raw_score": 0.8136334726958466,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 1,
+        "p_gold": 0.7099,
+        "probs": [
+          0.0126,
+          0.7099,
+          0.2307,
+          0.0468
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.969114123996405,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_LBS10680",
+      "score": 0.869682678323708,
+      "raw_score": 0.869682678323708,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.7482,
+        "probs": [
+          0.7482,
+          0.1764,
+          0.0514,
+          0.024
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.120749118999811,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "MCAS_2000_4_29",
+      "score": 0.3377910352364961,
+      "raw_score": 0.3377910352364961,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.4811,
+        "probs": [
+          0.4811,
+          0.4759,
+          0.0198,
+          0.0231
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.834543794000638,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7235953",
+      "score": 0.9999218166547498,
+      "raw_score": 0.9999218166547498,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 1,
+        "p_gold": 0.9935,
+        "probs": [
+          0.0017,
+          0.9935,
+          0.0035,
+          0.0013
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 13.596887150000839,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7241063",
+      "score": 0.9972831009436363,
+      "raw_score": 0.9972831009436363,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 2,
+        "p_gold": 0.9613,
+        "probs": [
+          0.0122,
+          0.0177,
+          0.9613,
+          0.0088
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 8.97423272299784,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7168350",
+      "score": 0.9996779064901593,
+      "raw_score": 0.9996779064901593,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.9887,
+        "probs": [
+          0.9887,
+          0.0005,
+          0.0003,
+          0.0106
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.8388784369963105,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "NYSEDREGENTS_2010_8_2",
+      "score": 0.42334133458072465,
+      "raw_score": 0.42334133458072465,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 3,
+        "p_gold": 0.4733,
+        "probs": [
+          0.0392,
+          0.1119,
+          0.3756,
+          0.4733
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.092897360998904,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "NYSEDREGENTS_2012_4_17",
+      "score": 0.5351989191853757,
+      "raw_score": 0.5351989191853757,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.5083,
+        "probs": [
+          0.5083,
+          0.2955,
+          0.1081,
+          0.0881
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 5.78097921799781,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7026495",
+      "score": 0.0,
+      "raw_score": -1.6223559303757944,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 1,
+        "p_gold": 0.0056,
+        "probs": [
+          0.0046,
+          0.9889,
+          0.0056,
+          0.0008
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.829852490998746,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_178710",
+      "score": 0.0,
+      "raw_score": -1.5448515862948367,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.0138,
+        "probs": [
+          0.9674,
+          0.0079,
+          0.0138,
+          0.0109
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.838394217003952,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "NYSEDREGENTS_2013_8_12",
+      "score": 0.9999999543341455,
+      "raw_score": 0.9999999543341455,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.9998,
+        "probs": [
+          0.9998,
+          0.0001,
+          0.0001,
+          0.0
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 4.855308920996322,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_409142",
+      "score": 0.0,
+      "raw_score": -1.646715568651104,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 2,
+        "p_gold": 0.0031,
+        "probs": [
+          0.0007,
+          0.0005,
+          0.9956,
+          0.0031
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.226478267999482,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_400364",
+      "score": 0.9991165351273328,
+      "raw_score": 0.9991165351273328,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 2,
+        "p_gold": 0.9778,
+        "probs": [
+          0.0087,
+          0.0074,
+          0.9778,
+          0.0062
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.16372532799869,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_406012",
+      "score": 0.9999993467466285,
+      "raw_score": 0.9999993467466285,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 1,
+        "p_gold": 0.9994,
+        "probs": [
+          0.0003,
+          0.9994,
+          0.0002,
+          0.0001
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.884599343000446,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_407192",
+      "score": 0.47080796332226116,
+      "raw_score": 0.47080796332226116,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 2,
+        "p_gold": 0.487,
+        "probs": [
+          0.3438,
+          0.109,
+          0.487,
+          0.0602
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.7579625450016465,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if01",
+      "score": 0.0,
+      "raw_score": 0.0,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "3 sentences": false,
+          "no commas": false
+        },
+        "n_passed": 0,
+        "n_checks": 2,
+        "strict": false,
+        "output": "The ocean is a vast, deep body of saltwater that covers approximately 71% of Earth's surface. It is a vital ecosystem that supports a diverse array of marine life, from tiny plankton to massive whales. The ocean's vastness and depth allow for a wide range of marine phenomena, including tides, currents, and waves. It is also a source of important resources such as fish, seafood, and minerals."
+      },
+      "wall_s": 20.950371273997007,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if02",
+      "score": 1.0,
+      "raw_score": 1.0,
+      "correct": true,
+      "detail": {
+        "checks": {
+          "all lowercase": true,
+          "15-120 words": true
+        },
+        "n_passed": 2,
+        "n_checks": 2,
+        "strict": true,
+        "output": "cats are furry, four-legged animals that are commonly kept as pets. they are known for their playful nature, affectionate personalities, and ability to navigate complex environments. cats are often associated with a sense of companionship and are often considered to be one of the most intelligent animals in the world. they are also known for their ability to hunt and are often used in various forms of entertainment, such as cat videos and cat toys. however, it is important to note that cats can be unpredictable and may require a lot of attention and care to keep them happy and healthy."
+      },
+      "wall_s": 27.61630940000032,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if03",
+      "score": 1.0,
+      "raw_score": 1.0,
+      "correct": true,
+      "detail": {
+        "checks": {
+          "exactly 4 bullets": true
+        },
+        "n_passed": 1,
+        "n_checks": 1,
+        "strict": true,
+        "output": "* Knife\n* Fork\n* Spatula\n* Baking Pan"
+      },
+      "wall_s": 7.287552207002591,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if04",
+      "score": 1.0,
+      "raw_score": 1.0,
+      "correct": true,
+      "detail": {
+        "checks": {
+          "valid json + keys": true
+        },
+        "n_passed": 1,
+        "n_checks": 1,
+        "strict": true,
+        "output": "```json\n{\n  \"title\": \"The Great Gatsby\",\n  \"author\": \"F. Scott Fitzgerald\",\n  \"year\": 1925\n}\n```"
+      },
+      "wall_s": 11.97149417000037,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if05",
+      "score": 0.5,
+      "raw_score": 0.5,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "40-80 words": false,
+          "ends with phrase": true
+        },
+        "n_passed": 1,
+        "n_checks": 2,
+        "strict": false,
+        "output": "The sky appears blue because of the scattering of sunlight by tiny particles in the Earth's atmosphere. These particles, primarily nitrogen and oxygen, scatter blue light more than other colors. The blue color is due to the fact that the Earth's atmosphere is mostly composed of nitrogen and oxygen, which are lighter than the other gases in the air. This lighter gas composition allows blue light to pass through while scattering other colors, creating the blue color we see in the sky. That is the answer."
+      },
+      "wall_s": 25.23090509499889,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if06",
+      "score": 1.0,
+      "raw_score": 1.0,
+      "correct": true,
+      "detail": {
+        "checks": {
+          "wrapped in quotes": true,
+          "10-100 words": true
+        },
+        "n_passed": 2,
+        "n_checks": 2,
+        "strict": true,
+        "output": "\"Unleash Your Inner Cyclist: Experience the thrill of a bicycle with our innovative and durable bicycle. Designed with precision and durability, this bicycle is built to withstand the rigors of daily commuting and off-road adventures. With its sleek and modern design, it's the perfect choice for anyone looking to explore the outdoors or simply enjoy a leisurely ride. Whether you're a seasoned cyclist or a beginner, our bicycle is sure to provide you with the perfect balance of comfort, functionality, and style. Experience the joy of cycling with us today!\""
+      },
+      "wall_s": 26.337266037000518,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if07",
+      "score": 1.0,
+      "raw_score": 1.0,
+      "correct": true,
+      "detail": {
+        "checks": {
+          "<<title>>": true
+        },
+        "n_passed": 1,
+        "n_checks": 1,
+        "strict": true,
+        "output": "<<Coffee: A Global Phenomenon>>"
+      },
+      "wall_s": 5.89900196200324,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if08",
+      "score": 0.5,
+      "raw_score": 0.5,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "2 paragraphs": false,
+          "'weather' x3": true
+        },
+        "n_passed": 1,
+        "n_checks": 2,
+        "strict": false,
+        "output": "The seasons in China are distinct and change with the seasons, each with its own unique weather conditions. Spring is the season of rebirth and growth, with warm temperatures and abundant rainfall. Summer is the season of warmth and heat, with hot weather and abundant sunshine. Autumn is the season of harvest and change, with cool temperatures and abundant rainfall. Winter is the season of cold and snow, with cold temperatures and abundant snowfall. The weather in China is influenced by the climate and geography, and each season has its own unique weather conditions."
+      },
+      "wall_s": 27.31899014800001,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if09",
+      "score": 0.5,
+      "raw_score": 0.5,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "all caps": false,
+          "correct": true
+        },
+        "n_passed": 1,
+        "n_checks": 2,
+        "strict": false,
+        "output": "The capital city of Japan is Tokyo."
+      },
+      "wall_s": 4.396268482996675,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if10",
+      "score": 0.5,
+      "raw_score": 0.5,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "starts with Certainly": true,
+          "forbidden words absent": false
+        },
+        "n_passed": 1,
+        "n_checks": 2,
+        "strict": false,
+        "output": "Certainly, a rainy day is one where the sky is covered in a layer of water, often with clouds that are white or gray. The air is cool and damp, and the weather can be unpredictable, with raindrops falling from the sky. The air is often filled with the scent of wet earth and the sound of raindrops hitting the ground. People often wear raincoats or umbrellas to protect themselves from the rain. The weather can be a refreshing change from the usual dry and sunny days."
+      },
+      "wall_s": 26.326730726003007,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,1130 @@
+{
+  "schema_version": 3,
+  "team": "pythia",
+  "split": "public",
+  "timestamp": "2026-09-13T02:30:09",
+  "quality": {
+    "score_100": 20.1,
+    "points": 10.03,
+    "max_points": 50,
+    "items": 50,
+    "sections": {
+      "hellaswag": {
+        "n": 20,
+        "points": 3.868,
+        "pct": 19.34,
+        "raw_mean": -0.3312,
+        "accuracy_pct": 25.0,
+        "errors": 0
+      },
+      "arc_easy": {
+        "n": 20,
+        "points": 3.661,
+        "pct": 18.31,
+        "raw_mean": -0.0628,
+        "accuracy_pct": 30.0,
+        "errors": 0
+      },
+      "ifeval": {
+        "n": 10,
+        "points": 2.5,
+        "pct": 25.0,
+        "raw_mean": 0.25,
+        "accuracy_pct": 10.0,
+        "errors": 0
+      }
+    },
+    "accuracy_pct": 24.0,
+    "abstentions": 0,
+    "errors": 0
+  },
+  "performance": {
+    "wall_clock_s": 835.76,
+    "load_s": 21.3,
+    "peak_rss_mb": 1246.3,
+    "requests": 50,
+    "prompt_tokens": 4383,
+    "generated_tokens": 2600,
+    "prefill_tok_s": 11.25,
+    "decode_tok_s": 6.18,
+    "decode_tok_s_wall": 5.69,
+    "ttft_ms_median": 3814.8,
+    "ttft_ms_p95": 4257.6,
+    "server": {
+      "model_path": "../models/pythia-410m.Q8_0.gguf",
+      "total_slots": 4,
+      "build_info": "b10851-67672dc5b",
+      "chat_template": "{%- for message in messages -%}\n  {{- '<|im_start|>' + message.role + '\n' + message.content + '<|im_end|>\n' -}}\n{%- endfor -%}\n{%- if add_generation_prompt -%}\n  {{- '<|im_start|>assistant\n' -}}\n{%- endif -%}",
+      "n_ctx": 2048
+    }
+  },
+  "items": [
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.8583634360907959,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.0846,
+        "probs": [
+          0.7298,
+          0.148,
+          0.0846,
+          0.0376
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.303763791001984,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.8222645003371781,
+      "raw_score": 0.8222645003371781,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.6936,
+        "probs": [
+          0.6936,
+          0.1713,
+          0.0895,
+          0.0456
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.810338367999066,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.8249185144808759,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.0959,
+        "probs": [
+          0.7312,
+          0.0959,
+          0.1153,
+          0.0575
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 12.526112580999325,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.8616963615259474,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 0,
+        "p_gold": 0.0398,
+        "probs": [
+          0.6535,
+          0.1422,
+          0.1644,
+          0.0398
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 8.381777848000638,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.7605584232122045,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 0,
+        "p_gold": 0.07,
+        "probs": [
+          0.6436,
+          0.1319,
+          0.1545,
+          0.07
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.371103402001609,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.7441699036771219,
+      "raw_score": 0.7441699036771219,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.6332,
+        "probs": [
+          0.6332,
+          0.1998,
+          0.1248,
+          0.0422
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.57956594999996,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.6445800037757827,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.1243,
+        "probs": [
+          0.6658,
+          0.1243,
+          0.1299,
+          0.0801
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.599330500997894,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.7185001402547244,
+      "raw_score": 0.7185001402547244,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.6144,
+        "probs": [
+          0.6144,
+          0.1043,
+          0.2181,
+          0.0632
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 12.67512012199586,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.41933400445667357,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.1973,
+        "probs": [
+          0.6361,
+          0.1973,
+          0.1123,
+          0.0544
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.873603277999791,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.4881289590949496,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.1799,
+        "probs": [
+          0.6532,
+          0.1799,
+          0.1218,
+          0.0451
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 13.88584619500034,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.760592086157194,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.1265,
+        "probs": [
+          0.7405,
+          0.1265,
+          0.0797,
+          0.0533
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 11.11900208100269,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.6394387067479126,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.1197,
+        "probs": [
+          0.6479,
+          0.1788,
+          0.1197,
+          0.0537
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 10.869279819002259,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.7877580052161723,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.0954,
+        "probs": [
+          0.7083,
+          0.1258,
+          0.0954,
+          0.0704
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 13.399258313998871,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.5931899533652689,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.1493,
+        "probs": [
+          0.6743,
+          0.1113,
+          0.1493,
+          0.0651
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.230079375003697,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.6594316820453243,
+      "raw_score": 0.6594316820453243,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.5705,
+        "probs": [
+          0.5705,
+          0.2099,
+          0.1472,
+          0.0724
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 11.200205012995866,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.941593412763549,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 0,
+        "p_gold": 0.0565,
+        "probs": [
+          0.7381,
+          0.1097,
+          0.0957,
+          0.0565
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 12.025665631001175,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.29642702756602235,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.2219,
+        "probs": [
+          0.5844,
+          0.2219,
+          0.1546,
+          0.0391
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 8.963195962001919,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -0.49516211168828494,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.1442,
+        "probs": [
+          0.582,
+          0.2168,
+          0.1442,
+          0.0569
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 9.154362536995905,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.0,
+      "raw_score": -1.1199349536384404,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 0,
+        "p_gold": 0.032,
+        "probs": [
+          0.7989,
+          0.0973,
+          0.0718,
+          0.032
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 12.655314655996335,
+      "error": null
+    },
+    {
+      "task": "hellaswag",
+      "item_id": "?",
+      "score": 0.9239714174667091,
+      "raw_score": 0.9239714174667091,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.7961,
+        "probs": [
+          0.7961,
+          0.0807,
+          0.0875,
+          0.0357
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 11.209683121996932,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_182158",
+      "score": 0.6756634182958119,
+      "raw_score": 0.6756634182958119,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.5838,
+        "probs": [
+          0.5838,
+          0.2162,
+          0.1406,
+          0.0594
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.9802462510051555,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7216668",
+      "score": 0.0,
+      "raw_score": -0.2590475190253285,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.1943,
+        "probs": [
+          0.4866,
+          0.2205,
+          0.1943,
+          0.0985
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.343452100998547,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "MCAS_2001_5_19",
+      "score": 0.0,
+      "raw_score": -0.5632911451560025,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.1461,
+        "probs": [
+          0.6433,
+          0.1655,
+          0.1461,
+          0.045
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 4.574514317995636,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_415412",
+      "score": 0.0,
+      "raw_score": -0.33148771547224554,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 0,
+        "p_gold": 0.139,
+        "probs": [
+          0.3381,
+          0.2055,
+          0.3174,
+          0.139
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.873917145996529,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7126840",
+      "score": 0.0,
+      "raw_score": -0.1304757169964632,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.2281,
+        "probs": [
+          0.425,
+          0.2487,
+          0.2281,
+          0.0982
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.701186191996385,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "NYSEDREGENTS_2015_8_21",
+      "score": 0.013037775290385079,
+      "raw_score": 0.013037775290385079,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.2651,
+        "probs": [
+          0.3385,
+          0.2651,
+          0.2571,
+          0.1394
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 5.934446421000757,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_LBS10680",
+      "score": 0.40414914947039327,
+      "raw_score": 0.40414914947039327,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.4424,
+        "probs": [
+          0.4424,
+          0.2785,
+          0.2383,
+          0.0407
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.185102291005023,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "MCAS_2000_4_29",
+      "score": 0.8464788157486425,
+      "raw_score": 0.8464788157486425,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.7113,
+        "probs": [
+          0.7113,
+          0.0492,
+          0.1384,
+          0.1011
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.278301899998041,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7235953",
+      "score": 0.0,
+      "raw_score": -0.05384704872534107,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.2536,
+        "probs": [
+          0.4194,
+          0.2536,
+          0.2073,
+          0.1197
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 11.256679598001938,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7241063",
+      "score": 0.0,
+      "raw_score": -0.16447116819324648,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.2159,
+        "probs": [
+          0.4361,
+          0.2364,
+          0.2159,
+          0.1116
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.7548042819980765,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7168350",
+      "score": 0.2113004972277901,
+      "raw_score": 0.2113004972277901,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.3459,
+        "probs": [
+          0.3459,
+          0.255,
+          0.2968,
+          0.1023
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 5.699192612999468,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "NYSEDREGENTS_2010_8_2",
+      "score": 0.0,
+      "raw_score": -0.8215762479077127,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 0,
+        "p_gold": 0.0484,
+        "probs": [
+          0.6382,
+          0.2024,
+          0.1111,
+          0.0484
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.930502948001958,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "NYSEDREGENTS_2012_4_17",
+      "score": 0.5387989846106649,
+      "raw_score": 0.5387989846106649,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.4963,
+        "probs": [
+          0.4963,
+          0.0985,
+          0.2174,
+          0.1877
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 5.150996880001912,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_7026495",
+      "score": 0.0,
+      "raw_score": -0.2789534891447438,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.1999,
+        "probs": [
+          0.5322,
+          0.1319,
+          0.1999,
+          0.136
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.831330879002053,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_178710",
+      "score": 0.0,
+      "raw_score": -0.9490354353766854,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.0688,
+        "probs": [
+          0.7581,
+          0.1357,
+          0.0688,
+          0.0375
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.101752403003047,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "NYSEDREGENTS_2013_8_12",
+      "score": 0.9171027111063886,
+      "raw_score": 0.9171027111063886,
+      "correct": true,
+      "detail": {
+        "method": "first_token",
+        "gold": 0,
+        "picked": 0,
+        "p_gold": 0.7895,
+        "probs": [
+          0.7895,
+          0.1094,
+          0.0702,
+          0.0309
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 4.199681073005195,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_409142",
+      "score": 0.0,
+      "raw_score": -0.5133723892190121,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 3,
+        "picked": 0,
+        "p_gold": 0.0906,
+        "probs": [
+          0.4443,
+          0.2676,
+          0.1975,
+          0.0906
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.365508960996522,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_400364",
+      "score": 0.0,
+      "raw_score": -0.5252959976403255,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.141,
+        "probs": [
+          0.6053,
+          0.188,
+          0.141,
+          0.0657
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 8.003221748003853,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_406012",
+      "score": 0.0,
+      "raw_score": -0.325951097380764,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 1,
+        "picked": 0,
+        "p_gold": 0.217,
+        "probs": [
+          0.6015,
+          0.217,
+          0.1305,
+          0.0511
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 7.799351214998751,
+      "error": null
+    },
+    {
+      "task": "arc_easy",
+      "item_id": "Mercury_SC_407192",
+      "score": 0.05494626757853327,
+      "raw_score": 0.05494626757853327,
+      "correct": false,
+      "detail": {
+        "method": "first_token",
+        "gold": 2,
+        "picked": 0,
+        "p_gold": 0.2921,
+        "probs": [
+          0.3947,
+          0.194,
+          0.2921,
+          0.1192
+        ],
+        "n_floored": 0
+      },
+      "wall_s": 6.704725227995368,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if01",
+      "score": 0.5,
+      "raw_score": 0.5,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "3 sentences": false,
+          "no commas": true
+        },
+        "n_passed": 1,
+        "n_checks": 2,
+        "strict": false,
+        "output": "<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_end|>assistant\n<|im_"
+      },
+      "wall_s": 44.19973011500406,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if02",
+      "score": 0.0,
+      "raw_score": 0.0,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "all lowercase": false,
+          "15-120 words": false
+        },
+        "n_passed": 0,
+        "n_checks": 2,
+        "strict": false,
+        "output": "Write a short paragraph about cats. Your entire response must be in lowercase letters. No capital letters are allowed.<|im_end|>\n<|im_start|>assistant\nWrite a short paragraph about cats. Your entire response must be in lowercase letters. No capital letters are allowed.<|im_end|>\n<|im_start|>assistant\nWrite a short paragraph about cats. Your entire response must be in lowercase letters. No capital letters are allowed.<|im_end|>\n<|im_start|>assistant\nWrite a short paragraph about cats. Your entire response must be in lowercase letters. No capital letters are allowed.<|im_end|>\n<|im_start|>assist"
+      },
+      "wall_s": 45.7625431560009,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if03",
+      "score": 0.0,
+      "raw_score": 0.0,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "exactly 4 bullets": false
+        },
+        "n_passed": 0,
+        "n_checks": 1,
+        "strict": false,
+        "output": "<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_start|>assistant\n<|im_s"
+      },
+      "wall_s": 46.4944073000006,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if04",
+      "score": 0.0,
+      "raw_score": 0.0,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "valid json + keys": false
+        },
+        "n_passed": 0,
+        "n_checks": 1,
+        "strict": false,
+        "output": "Return a JSON object describing a book. It must contain the keys \"title\", \"author\" and \"year\". Output only the JSON.<|im_end|>\n<|im_start|>book\nReturn a JSON object describing a book. It must contain the keys \"title\", \"author\" and \"year\". Output only the JSON.<|im_end|>\n<|im_start|>book_book\nReturn a JSON object describing a book. It must contain the keys \"title\", \"author\" and \"year\". Output only the JSON.<|im_end|>\n<|im_start|>book_book_book\nReturn a JSON object describing a book. It must contain the keys \"title\", \"author\" and \"year\". Output only the JSON.<|im_end|>\n<|im_start|>book_book_book"
+      },
+      "wall_s": 46.216202318995784,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if05",
+      "score": 0.0,
+      "raw_score": 0.0,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "40-80 words": false,
+          "ends with phrase": false
+        },
+        "n_passed": 0,
+        "n_checks": 2,
+        "strict": false,
+        "output": "Explain why the sky is blue in between 40 and 80 words. Finish your reply with the exact phrase: That is the answer.<|im_end|>\n<|im_start|>assistant\nExplain why the sky is blue in between 40 and 80 words. Finish your reply with the exact phrase: That is the answer.<|im_end|>\n<|im_start|>assistant\nExplain why the sky is blue in between 40 and 80 words. Finish your reply with the exact phrase: That is the answer.<|im_end|>\n<|im_start|>assistant\nExplain why the sky is blue in between 40 and 80 words. Finish your reply with the exact phrase: That is the answer.<|im_end|>\n<|im_start|>assistant\nExpl"
+      },
+      "wall_s": 46.135254446002364,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if06",
+      "score": 0.5,
+      "raw_score": 0.5,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "wrapped in quotes": false,
+          "10-100 words": true
+        },
+        "n_passed": 1,
+        "n_checks": 2,
+        "strict": false,
+        "output": "<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_"
+      },
+      "wall_s": 44.78353732499818,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if07",
+      "score": 1.0,
+      "raw_score": 1.0,
+      "correct": true,
+      "detail": {
+        "checks": {
+          "<<title>>": true
+        },
+        "n_passed": 1,
+        "n_checks": 1,
+        "strict": true,
+        "output": "Give me a title for an article about coffee. The title must be wrapped in double angular brackets, like <<this>>.<|im_end|>\n<|im_start|>assistant\nGive me a title for an article about coffee. The title must be wrapped in double angular brackets, like <<this>>.<|im_end|>\n<|im_start|>assistant\nGive me a title for an article about coffee. The title must be wrapped in double angular brackets, like <<this>>.<|im_end|>\n<|im_start|>assistant\nGive me a title for an article about coffee. The title must be wrapped in double angular brackets, like <<this>>.<|im_end|>\n<|im_start|>assistant\nGive me a title "
+      },
+      "wall_s": 45.71189841799787,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if08",
+      "score": 0.0,
+      "raw_score": 0.0,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "2 paragraphs": false,
+          "'weather' x3": false
+        },
+        "n_passed": 0,
+        "n_checks": 2,
+        "strict": false,
+        "output": "<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_"
+      },
+      "wall_s": 45.97919554499822,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if09",
+      "score": 0.0,
+      "raw_score": 0.0,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "all caps": false,
+          "correct": false
+        },
+        "n_passed": 0,
+        "n_checks": 2,
+        "strict": false,
+        "output": "Answer in ALL CAPITAL LETTERS: what is the capital city of Japan?<|im_end|>\n<|im_start|>assistant\nAnswer in ALL CAPITAL LETTERS: what is the capital city of Japan?<|im_end|>\n<|im_start|>assistant\nAnswer in ALL CAPITAL LETTERS: what is the capital city of Japan?<|im_end|>\n<|im_start|>assistant\nAnswer in ALL CAPITAL LETTERS: what is the capital city of Japan?<|im_end|>\n<|im_start|>assistant\nAnswer in ALL CAPITAL LETTERS: what is the capital city of Japan?<|im_end|>\n<|im_start|>assistant\nAnswer in ALL CAPITAL LETTERS: what is the capital city of Japan?<|im_end|>\n<|im_start|>assistant\nAnswer in AL"
+      },
+      "wall_s": 45.347523876000196,
+      "error": null
+    },
+    {
+      "task": "ifeval",
+      "item_id": "if10",
+      "score": 0.5,
+      "raw_score": 0.5,
+      "correct": false,
+      "detail": {
+        "checks": {
+          "starts with Certainly": false,
+          "forbidden words absent": true
+        },
+        "n_passed": 1,
+        "n_checks": 2,
+        "strict": false,
+        "output": "<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_end|>assistant\n<|im_start|>assistant\n<|im_"
+      },
+      "wall_s": 46.717584480997175,
+      "error": null
+    }
+  ]
+}

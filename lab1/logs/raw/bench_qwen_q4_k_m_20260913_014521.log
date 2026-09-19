@@ -1,0 +1,89 @@
+=== qwen_q4_k_m : Sun Sep 13 01:45:21 AM CDT 2026 ===
+model: ../models/qwen2.5-0.5b-instruct-q4_k_m.gguf
+  starting: ../bin/llama-server -m ../models/qwen2.5-0.5b-instruct-q4_k_m.gguf -t 4 -tb 4 --host 127.0.0.1 --port 8080 --no-warmup
+  server ready in 30.5s
+  mode: chat (/v1/chat/completions)  threads: 4
+
+[hellaswag] 20 items
+    1/20   score=0.000 (14.86s)
+    2/20   score=0.429 (11.07s)
+    3/20   score=0.173 (14.68s)
+    4/20   score=0.999 ( 8.79s)
+    5/20   score=0.000 (12.92s)
+    6/20   score=0.689 (10.85s)
+    7/20   score=0.792 (12.33s)
+    8/20   score=0.365 (15.24s)
+    9/20   score=0.254 (12.75s)
+   10/20   score=0.000 (17.43s)
+   11/20   score=0.808 (13.15s)
+   12/20   score=0.920 (11.97s)
+   13/20   score=0.689 (16.20s)
+   14/20   score=0.000 (10.31s)
+   15/20   score=0.352 (12.99s)
+   16/20   score=0.000 (14.18s)
+   17/20   score=0.000 ( 9.82s)
+   18/20   score=0.000 (10.04s)
+   19/20   score=0.000 (15.18s)
+   20/20   score=0.000 (12.88s)
+
+[arc_easy] 20 items
+    1/20   score=0.000 ( 8.79s)
+    2/20   score=1.000 ( 7.50s)
+    3/20   score=1.000 ( 4.57s)
+    4/20   score=0.000 ( 9.79s)
+    5/20   score=1.000 ( 7.87s)
+    6/20   score=0.000 ( 6.73s)
+    7/20   score=0.988 ( 8.66s)
+    8/20   score=0.648 ( 6.63s)
+    9/20   score=1.000 (13.12s)
+   10/20   score=1.000 ( 8.67s)
+   11/20   score=0.986 ( 6.61s)
+   12/20   score=0.746 ( 8.80s)
+   13/20   score=0.000 ( 5.58s)
+   14/20   score=0.000 ( 9.40s)
+   15/20   score=0.000 ( 6.61s)
+   16/20   score=1.000 ( 4.70s)
+   17/20   score=0.000 ( 8.93s)
+   18/20   score=1.000 ( 9.78s)
+   19/20   score=1.000 ( 9.53s)
+   20/20   score=0.827 ( 7.51s)
+
+[ifeval] 10 items
+    1/10   score=0.500 (18.55s)
+    2/10   score=1.000 (18.00s)
+    3/10   score=1.000 ( 6.88s)
+    4/10   score=1.000 (11.62s)
+    5/10   score=1.000 (20.21s)
+    6/10   score=1.000 (16.70s)
+    7/10   score=1.000 ( 5.52s)
+    8/10   score=0.500 (58.33s)
+    9/10   score=0.500 ( 4.28s)
+   10/10   score=1.000 (26.37s)
+wrote /home/macoto/lab1/results/bench_qwen_q4_k_m_20260913_014521.json
+
+============================================================
+QUALITY   team=qwen_q4_k_m  split=public
+------------------------------------------------------------
+section        n      pct      raw   argmax acc
+hellaswag     20    32.4%   +0.056        50.0%
+arc_easy      20    61.0%   +0.249        65.0%
+ifeval        10    85.0%   +0.850        70.0%
+------------------------------------------------------------
+TOTAL         50     54.3                 60.0%
+
+  SCORE  27.16 / 50 points  ->  54.3%
+
+============================================================
+PERFORMANCE BREAKDOWN
+------------------------------------------------------------
+  load time       30.46 s
+  peak RSS        971.6 MB
+  prefill         7.8 tok/s
+  decode          5.17 tok/s
+  TTFT median     3962.2 ms
+  TTFT p95        4661.2 ms
+  prompt tokens   3525
+  gen tokens      770
+  wall clock      635.17 s
+============================================================
+EXIT:0

@@ -1,0 +1,89 @@
+=== pythia : Sun Sep 13 02:16:12 AM CDT 2026 ===
+model: ../models/pythia-410m.Q8_0.gguf
+  starting: ../bin/llama-server -m ../models/pythia-410m.Q8_0.gguf -t 4 -tb 4 --host 127.0.0.1 --port 8080 --no-warmup
+  server ready in 21.3s
+  mode: chat (/v1/chat/completions)  threads: 4
+
+[hellaswag] 20 items
+    1/20   score=0.000 (10.30s)
+    2/20   score=0.822 ( 9.81s)
+    3/20   score=0.000 (12.53s)
+    4/20   score=0.000 ( 8.38s)
+    5/20   score=0.000 (10.37s)
+    6/20   score=0.744 ( 9.58s)
+    7/20   score=0.000 (10.60s)
+    8/20   score=0.719 (12.68s)
+    9/20   score=0.000 (10.87s)
+   10/20   score=0.000 (13.89s)
+   11/20   score=0.000 (11.12s)
+   12/20   score=0.000 (10.87s)
+   13/20   score=0.000 (13.40s)
+   14/20   score=0.000 ( 9.23s)
+   15/20   score=0.659 (11.20s)
+   16/20   score=0.000 (12.03s)
+   17/20   score=0.000 ( 8.96s)
+   18/20   score=0.000 ( 9.15s)
+   19/20   score=0.000 (12.66s)
+   20/20   score=0.924 (11.21s)
+
+[arc_easy] 20 items
+    1/20   score=0.676 ( 7.98s)
+    2/20   score=0.000 ( 6.34s)
+    3/20   score=0.000 ( 4.57s)
+    4/20   score=0.000 ( 7.87s)
+    5/20   score=0.000 ( 6.70s)
+    6/20   score=0.013 ( 5.93s)
+    7/20   score=0.404 ( 7.19s)
+    8/20   score=0.846 ( 6.28s)
+    9/20   score=0.000 (11.26s)
+   10/20   score=0.000 ( 7.75s)
+   11/20   score=0.211 ( 5.70s)
+   12/20   score=0.000 ( 6.93s)
+   13/20   score=0.539 ( 5.15s)
+   14/20   score=0.000 ( 7.83s)
+   15/20   score=0.000 ( 6.10s)
+   16/20   score=0.917 ( 4.20s)
+   17/20   score=0.000 ( 7.37s)
+   18/20   score=0.000 ( 8.00s)
+   19/20   score=0.000 ( 7.80s)
+   20/20   score=0.055 ( 6.70s)
+
+[ifeval] 10 items
+    1/10   score=0.500 (44.20s)
+    2/10   score=0.000 (45.76s)
+    3/10   score=0.000 (46.49s)
+    4/10   score=0.000 (46.22s)
+    5/10   score=0.000 (46.14s)
+    6/10   score=0.500 (44.78s)
+    7/10   score=1.000 (45.71s)
+    8/10   score=0.000 (45.98s)
+    9/10   score=0.000 (45.35s)
+   10/10   score=0.500 (46.72s)
+wrote /home/macoto/lab1/results/bench_pythia_20260913_021612.json
+
+============================================================
+QUALITY   team=pythia  split=public
+------------------------------------------------------------
+section        n      pct      raw   argmax acc
+hellaswag     20    19.3%   -0.331        25.0%
+arc_easy      20    18.3%   -0.063        30.0%
+ifeval        10    25.0%   +0.250        10.0%
+------------------------------------------------------------
+TOTAL         50     20.1                 24.0%
+
+  SCORE  10.03 / 50 points  ->  20.1%
+
+============================================================
+PERFORMANCE BREAKDOWN
+------------------------------------------------------------
+  load time       21.3 s
+  peak RSS        1246.3 MB
+  prefill         11.25 tok/s
+  decode          6.18 tok/s
+  TTFT median     3814.8 ms
+  TTFT p95        4257.6 ms
+  prompt tokens   4383
+  gen tokens      2600
+  wall clock      835.76 s
+============================================================
+EXIT:0

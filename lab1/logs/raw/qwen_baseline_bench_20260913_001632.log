@@ -1,0 +1,86 @@
+  starting: ../bin/llama-server -m ../models/qwen2.5-0.5b-instruct-q8_0.gguf -t 4 -tb 4 --host 127.0.0.1 --port 8080 --no-warmup
+  server ready in 9.7s
+  mode: chat (/v1/chat/completions)  threads: 4
+
+[hellaswag] 20 items
+    1/20   score=0.000 (11.91s)
+    2/20   score=0.635 ( 9.09s)
+    3/20   score=0.261 (11.79s)
+    4/20   score=0.997 ( 7.08s)
+    5/20   score=0.000 (10.39s)
+    6/20   score=0.940 ( 8.72s)
+    7/20   score=0.714 ( 9.91s)
+    8/20   score=0.315 (12.17s)
+    9/20   score=0.131 (10.21s)
+   10/20   score=0.000 (13.95s)
+   11/20   score=0.944 (10.52s)
+   12/20   score=0.853 ( 9.61s)
+   13/20   score=0.617 (12.99s)
+   14/20   score=0.000 ( 8.26s)
+   15/20   score=0.571 (10.49s)
+   16/20   score=0.000 (11.36s)
+   17/20   score=0.000 ( 7.85s)
+   18/20   score=0.000 ( 8.07s)
+   19/20   score=0.000 (12.17s)
+   20/20   score=0.000 (10.31s)
+
+[arc_easy] 20 items
+    1/20   score=0.000 ( 7.06s)
+    2/20   score=1.000 ( 6.02s)
+    3/20   score=1.000 ( 3.68s)
+    4/20   score=0.000 ( 7.85s)
+    5/20   score=0.999 ( 6.32s)
+    6/20   score=0.806 ( 5.40s)
+    7/20   score=0.980 ( 6.96s)
+    8/20   score=0.564 ( 5.32s)
+    9/20   score=1.000 (10.52s)
+   10/20   score=1.000 ( 6.96s)
+   11/20   score=1.000 ( 5.31s)
+   12/20   score=0.583 ( 7.06s)
+   13/20   score=0.276 ( 4.49s)
+   14/20   score=0.000 ( 7.54s)
+   15/20   score=0.000 ( 5.31s)
+   16/20   score=1.000 ( 3.78s)
+   17/20   score=0.000 ( 7.16s)
+   18/20   score=0.999 ( 7.86s)
+   19/20   score=1.000 ( 7.67s)
+   20/20   score=0.530 ( 6.01s)
+
+[ifeval] 10 items
+    1/10   score=0.000 (17.78s)
+    2/10   score=0.500 (24.45s)
+    3/10   score=1.000 ( 5.78s)
+    4/10   score=1.000 ( 9.99s)
+    5/10   score=0.000 (26.52s)
+    6/10   score=0.500 (24.42s)
+    7/10   score=1.000 ( 4.77s)
+    8/10   score=0.500 (37.99s)
+    9/10   score=0.500 ( 3.58s)
+   10/10   score=1.000 (23.91s)
+wrote ../results/qwen_baseline_20260913_001632.json
+
+============================================================
+QUALITY   team=lab1_baseline  split=public
+------------------------------------------------------------
+section        n      pct      raw   argmax acc
+hellaswag     20    34.9%   +0.089        55.0%
+arc_easy      20    63.7%   +0.329        75.0%
+ifeval        10    60.0%   +0.600        40.0%
+------------------------------------------------------------
+TOTAL         50     51.4                 60.0%
+
+  SCORE  25.71 / 50 points  ->  51.4%
+
+============================================================
+PERFORMANCE BREAKDOWN
+------------------------------------------------------------
+  load time       9.67 s
+  peak RSS        1035.5 MB
+  prefill         9.72 tok/s
+  decode          5.79 tok/s
+  TTFT median     3191.7 ms
+  TTFT p95        3745.2 ms
+  prompt tokens   3525
+  gen tokens      862
+  wall clock      524.8 s
+============================================================

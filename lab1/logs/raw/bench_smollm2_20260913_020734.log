@@ -1,0 +1,89 @@
+=== smollm2 : Sun Sep 13 02:07:34 AM CDT 2026 ===
+model: ../models/smollm2-360m-instruct-q8_0.gguf
+  starting: ../bin/llama-server -m ../models/smollm2-360m-instruct-q8_0.gguf -t 4 -tb 4 --host 127.0.0.1 --port 8080 --no-warmup
+  server ready in 19.8s
+  mode: chat (/v1/chat/completions)  threads: 4
+
+[hellaswag] 20 items
+    1/20   score=0.107 (11.39s)
+    2/20   score=0.000 ( 8.80s)
+    3/20   score=0.000 (11.45s)
+    4/20   score=0.436 ( 7.05s)
+    5/20   score=0.275 (10.18s)
+    6/20   score=0.000 ( 8.63s)
+    7/20   score=0.000 ( 9.48s)
+    8/20   score=0.000 (11.63s)
+    9/20   score=0.000 ( 9.98s)
+   10/20   score=0.000 (13.33s)
+   11/20   score=0.000 (10.26s)
+   12/20   score=0.180 ( 9.89s)
+   13/20   score=0.002 (12.44s)
+   14/20   score=0.192 ( 8.17s)
+   15/20   score=0.047 (10.26s)
+   16/20   score=0.000 (11.17s)
+   17/20   score=0.000 ( 7.52s)
+   18/20   score=0.179 ( 7.90s)
+   19/20   score=0.162 (11.92s)
+   20/20   score=0.000 (10.27s)
+
+[arc_easy] 20 items
+    1/20   score=0.000 ( 6.75s)
+    2/20   score=0.292 ( 5.53s)
+    3/20   score=0.210 ( 3.94s)
+    4/20   score=0.153 ( 8.34s)
+    5/20   score=0.318 ( 6.14s)
+    6/20   score=0.000 ( 5.25s)
+    7/20   score=0.000 ( 6.68s)
+    8/20   score=0.000 ( 5.53s)
+    9/20   score=0.000 (10.08s)
+   10/20   score=0.461 ( 6.96s)
+   11/20   score=0.000 ( 5.06s)
+   12/20   score=0.340 ( 6.49s)
+   13/20   score=0.000 ( 4.40s)
+   14/20   score=0.340 ( 6.95s)
+   15/20   score=0.166 ( 5.44s)
+   16/20   score=0.000 ( 3.48s)
+   17/20   score=0.003 ( 6.86s)
+   18/20   score=0.415 ( 7.54s)
+   19/20   score=0.000 ( 7.34s)
+   20/20   score=0.112 ( 5.63s)
+
+[ifeval] 10 items
+    1/10   score=0.500 (12.06s)
+    2/10   score=0.000 (29.51s)
+    3/10   score=1.000 ( 5.32s)
+    4/10   score=1.000 ( 7.64s)
+    5/10   score=0.500 (12.70s)
+    6/10   score=1.000 (12.68s)
+    7/10   score=1.000 ( 3.91s)
+    8/10   score=0.500 (45.10s)
+    9/10   score=0.500 ( 4.74s)
+   10/10   score=1.000 (15.71s)
+wrote /home/macoto/lab1/results/bench_smollm2_20260913_020734.json
+
+============================================================
+QUALITY   team=smollm2  split=public
+------------------------------------------------------------
+section        n      pct      raw   argmax acc
+hellaswag     20     7.9%   -0.032        30.0%
+arc_easy      20    14.1%   +0.019        45.0%
+ifeval        10    70.0%   +0.700        50.0%
+------------------------------------------------------------
+TOTAL         50     22.8                 40.0%
+
+  SCORE  11.39 / 50 points  ->  22.8%
+
+============================================================
+PERFORMANCE BREAKDOWN
+------------------------------------------------------------
+  load time       19.79 s
+  peak RSS        937.6 MB
+  prefill         10.71 tok/s
+  decode          6.97 tok/s
+  TTFT median     2982.9 ms
+  TTFT p95        3376.5 ms
+  prompt tokens   3774
+  gen tokens      843
+  wall clock      495.72 s
+============================================================
+EXIT:0
